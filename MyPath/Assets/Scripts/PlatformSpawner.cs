@@ -15,22 +15,42 @@ public class PlatformSpawner : MonoBehaviour
 
     [Space(10)]
     [SerializeField, Range(0, 10)] private float roadSpeed;
+    [SerializeField, Range(0, 5f)] private float waitForSpawnNewRoad;
 
     private int spawnedRoadCounter;
+    private float timer;
 
     private void Start()
     {
-        for (int i = 0; i < 40; i++)
+        SpawnRoadSequence();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            SpawnRoad();
+            lastSpawnedRoad.StopRoad();
+            SpawnRoadSequence();
+            timer = 0;
+            return;
         }
+    }
+
+    private void SpawnRoadSequence()
+    {
+        RoadScript spawnedRoad = SpawnRoad();
+        lastSpawnedRoad = spawnedRoad;
+
+        spawnedRoadCounter++;
+
+        SetSpawnedRoadSettings(lastSpawnedRoad);
     }
 
     private RoadScript SpawnRoad()
     {
         Vector3 spawnPosition = new Vector3(
-            GetSpawnPositionXAxis(),
-            lastSpawnedRoad.transform.position.y,
+            GetSpawnPositionXAxis(), 
+            lastSpawnedRoad.transform.position.y, 
             lastSpawnedRoad.transform.position.z + lastSpawnedRoad.transform.GetChild(0).localScale.z
             );
 

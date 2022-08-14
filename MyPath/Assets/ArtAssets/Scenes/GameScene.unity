@@ -459,7 +459,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42315054}
-  m_LocalRotation: {x: 0.25782606, y: -0.20127666, z: 0.055008307, w: 0.9433915}
+  m_LocalRotation: {x: 0.25782606, y: -0.20127663, z: 0.05500829, w: 0.9433915}
   m_LocalPosition: {x: 2, y: 5.25, z: -3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2843,6 +2843,7 @@ MonoBehaviour:
   roadsParent: {fileID: 553436658}
   lastSpawnedRoad: {fileID: 75245138}
   roadSpeed: 5
+  waitForSpawnNewRoad: 0.6
 --- !u!1 &745579025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,7 +3330,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889751898}
-  m_LocalRotation: {x: 0.25782606, y: -0.20127666, z: 0.055008307, w: 0.9433915}
+  m_LocalRotation: {x: 0.25782606, y: -0.20127663, z: 0.05500829, w: 0.9433915}
   m_LocalPosition: {x: 2, y: 5.25, z: -3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10150,6 +10151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chibi_Parent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392696824857458462, guid: 2d115f4b443d7ba4cb08a636ea29809b,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8392696824857458463, guid: 2d115f4b443d7ba4cb08a636ea29809b,
         type: 3}

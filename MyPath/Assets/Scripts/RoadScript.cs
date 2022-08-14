@@ -10,16 +10,6 @@ public class RoadScript : MonoBehaviour
 
     private bool hasStopped;
 
-    public void SetRoadSpeed(float roadSpeed)
-    {
-        this.roadSpeed = roadSpeed;
-    }
-
-    public void SetDirectionType(GlobalVariables.DirectionType directionType)
-    {
-        direction = directionType;
-    }
-
     private void Update()
     {
         if (hasStopped)
@@ -36,6 +26,21 @@ public class RoadScript : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void StopRoad()
+    {
+        hasStopped = true;
+    }
+
+    public void SetRoadSpeed(float roadSpeed)
+    {
+        this.roadSpeed = roadSpeed;
+    }
+
+    public void SetDirectionType(GlobalVariables.DirectionType directionType)
+    {
+        direction = directionType;
     }
 
     private void MoveLeft()
