@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
+    public PlatformSettings PlatformSettings;
+    public PlatformSplitter PlatformSplitter;
+
+    [Space(10)]
     public List<GameObject> roadPrefabs = new List<GameObject>();
 
     [Space(10)]
@@ -14,15 +19,17 @@ public class PlatformSpawner : MonoBehaviour
     [SerializeField] private RoadScript lastSpawnedRoad;
 
     [Space(10)]
-    [SerializeField, Range(0, 10)] private float roadSpeed;
     [SerializeField, Range(0, 5f)] private float waitForSpawnNewRoad;
 
     private int spawnedRoadCounter;
-    private float timer;
 
+    #region UnityFunctions
     private void Start()
     {
-        SpawnRoadSequence();
+        RoadScript spawnedRoad = SpawnRoad();
+        spawnedRoadCounter++;
+        lastSpawnedRoad = spawnedRoad;
+        PlatformSettings.SetSpawnedRoadSettings(lastSpawnedRoad, spawnedRoadCounter);
     }
 
     private void Update()
@@ -30,33 +37,31 @@ public class PlatformSpawner : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             lastSpawnedRoad.StopRoad();
-            SpawnRoadSequence();
-            timer = 0;
-            return;
+            PlatformSplitter.SplitPlatform(lastSpawnedRoad);
+
+            RoadScript spawnedRoad = SpawnRoad();
+            lastSpawnedRoad = spawnedRoad;
+            spawnedRoadCounter++;
+            PlatformSettings.SetSpawnedRoadSettings(lastSpawnedRoad, spawnedRoadCounter);
         }
     }
-
-    private void SpawnRoadSequence()
-    {
-        RoadScript spawnedRoad = SpawnRoad();
-        lastSpawnedRoad = spawnedRoad;
-
-        spawnedRoadCounter++;
-
-        SetSpawnedRoadSettings(lastSpawnedRoad);
-    }
+    #endregion
 
     private RoadScript SpawnRoad()
     {
         Vector3 spawnPosition = new Vector3(
             GetSpawnPositionXAxis(), 
             lastSpawnedRoad.transform.position.y, 
-            lastSpawnedRoad.transform.position.z + lastSpawnedRoad.transform.GetChild(0).localScale.z
+            lastSpawnedRoad.transform.position.z + (lastSpawnedRoad.transform.localScale.z)
             );
 
+        Vector3 spawnScale = new Vector3(lastSpawnedRoad.transform.localScale.x, lastSpawnedRoad.transform.localScale.y, lastSpawnedRoad.transform.localScale.z);
+        
         GameObject spawablePrefab = roadPrefabs[spawnedRoadCounter % roadPrefabs.Count];
-
-        return Instantiate(spawablePrefab, spawnPosition, Quaternion.identity, roadsParent).GetComponent<RoadScript>();
+        GameObject spawnedRoad = Instantiate(spawablePrefab, spawnPosition, Quaternion.identity, roadsParent);
+        
+        spawnedRoad.transform.localScale = spawnScale;
+        return spawnedRoad.GetComponent<RoadScript>();
     }
 
     private float GetSpawnPositionXAxis()
@@ -70,15 +75,4 @@ public class PlatformSpawner : MonoBehaviour
 
         return spawnPositionX;
     }
-
-    private void SetSpawnedRoadSettings(RoadScript spawnedRoad)
-    {
-        if (spawnedRoadCounter % 2 == 0)
-            spawnedRoad.SetDirectionType(GlobalVariables.DirectionType.Left);
-        else
-            spawnedRoad.SetDirectionType(GlobalVariables.DirectionType.Right);
-
-        spawnedRoad.SetRoadSpeed(roadSpeed);
-    }
-
 }

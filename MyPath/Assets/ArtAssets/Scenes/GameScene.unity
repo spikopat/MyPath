@@ -459,7 +459,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42315054}
-  m_LocalRotation: {x: 0.25782606, y: -0.20127663, z: 0.05500829, w: 0.9433915}
+  m_LocalRotation: {x: 0.25782606, y: -0.20127665, z: 0.05500829, w: 0.9433915}
   m_LocalPosition: {x: 2, y: 5.25, z: -3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -493,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 1960722181801219727, guid: 03fc4479398aacc4a8117ad0f619b12a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.33661
       objectReference: {fileID: 0}
     - target: {fileID: 1960722181801219727, guid: 03fc4479398aacc4a8117ad0f619b12a,
         type: 3}
@@ -545,7 +545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &75245138 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4586641458133671398, guid: 03fc4479398aacc4a8117ad0f619b12a,
+  m_CorrespondingSourceObject: {fileID: -3811999982781350442, guid: 03fc4479398aacc4a8117ad0f619b12a,
     type: 3}
   m_PrefabInstance: {fileID: 75245135}
   m_PrefabAsset: {fileID: 0}
@@ -2781,6 +2781,8 @@ GameObject:
   m_Component:
   - component: {fileID: 730614096}
   - component: {fileID: 730614097}
+  - component: {fileID: 730614098}
+  - component: {fileID: 730614099}
   m_Layer: 0
   m_Name: PlatformSpawner
   m_TagString: Untagged
@@ -2817,6 +2819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1484e2eb7e814034d98d941604aa9f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlatformSettings: {fileID: 730614098}
+  PlatformSplitter: {fileID: 730614099}
   roadPrefabs:
   - {fileID: 2052554879301205545, guid: 03fc4479398aacc4a8117ad0f619b12a, type: 3}
   - {fileID: 7016013042403079840, guid: fa943a850941b7445a63ffb05cb23172, type: 3}
@@ -2842,8 +2846,48 @@ MonoBehaviour:
   RightPoint: {fileID: 286392561}
   roadsParent: {fileID: 553436658}
   lastSpawnedRoad: {fileID: 75245138}
-  roadSpeed: 5
   waitForSpawnNewRoad: 0.6
+--- !u!114 &730614098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730614095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5755d7f0d08eee044a3aac47b10cb8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadSpeed: 3
+--- !u!114 &730614099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730614095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350dc1c5f09ddf24390888c9b58c8251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadsParent: {fileID: 553436658}
+  GameFailEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 419967026}
+        m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &745579025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,7 +3374,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889751898}
-  m_LocalRotation: {x: 0.25782606, y: -0.20127663, z: 0.05500829, w: 0.9433915}
+  m_LocalRotation: {x: 0.25782606, y: -0.20127665, z: 0.05500829, w: 0.9433915}
   m_LocalPosition: {x: 2, y: 5.25, z: -3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10155,7 +10199,7 @@ PrefabInstance:
     - target: {fileID: 8392696824857458462, guid: 2d115f4b443d7ba4cb08a636ea29809b,
         type: 3}
       propertyPath: MoveSpeed
-      value: 1.5
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 8392696824857458463, guid: 2d115f4b443d7ba4cb08a636ea29809b,
         type: 3}

@@ -12,7 +12,7 @@ public class RoadScript : MonoBehaviour
 
     private void Update()
     {
-        if (hasStopped)
+        if (!StateManager.Instance.CheckState(GlobalVariables.GameStates.InGame) || hasStopped)
             return;
 
         switch (direction)

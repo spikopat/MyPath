@@ -24,4 +24,14 @@ public class StateManager : MonoBehaviour
         Gamestate = newState;
     }
 
+    public GlobalVariables.GameStates GetState()
+    {
+        return Gamestate;
+    }
+
+    public bool CheckState(GlobalVariables.GameStates state)
+    {
+        return Gamestate == state;
+    }
+
 }
