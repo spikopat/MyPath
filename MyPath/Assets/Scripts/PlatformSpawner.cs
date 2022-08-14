@@ -5,10 +5,18 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour
 {
     public List<GameObject> roadPrefabs = new List<GameObject>();
+
+    [Space(10)]
+    public Transform LeftPoint;
+    public Transform RightPoint;
+
     [SerializeField] private Transform roadsParent;
+    [SerializeField] private RoadScript lastSpawnedRoad;
+
+    [Space(10)]
+    [SerializeField, Range(0, 10)] private float roadSpeed;
 
     private int spawnedRoadCounter;
-    public GameObject lastSpawnedRoad;
 
     private void Start()
     {
@@ -18,17 +26,39 @@ public class PlatformSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnRoad()
+    private RoadScript SpawnRoad()
     {
         Vector3 spawnPosition = new Vector3(
-            lastSpawnedRoad.transform.position.x, 
-            lastSpawnedRoad.transform.position.y, 
+            GetSpawnPositionXAxis(),
+            lastSpawnedRoad.transform.position.y,
             lastSpawnedRoad.transform.position.z + lastSpawnedRoad.transform.GetChild(0).localScale.z
             );
 
-        GameObject spawnedRoad = Instantiate(roadPrefabs[spawnedRoadCounter % roadPrefabs.Count], spawnPosition, Quaternion.identity, roadsParent);
-        spawnedRoadCounter++;
-        lastSpawnedRoad = spawnedRoad;
+        GameObject spawablePrefab = roadPrefabs[spawnedRoadCounter % roadPrefabs.Count];
+
+        return Instantiate(spawablePrefab, spawnPosition, Quaternion.identity, roadsParent).GetComponent<RoadScript>();
+    }
+
+    private float GetSpawnPositionXAxis()
+    {
+        float spawnPositionX = 0;
+
+        if (spawnedRoadCounter % 2 == 0)
+            spawnPositionX = RightPoint.position.x;
+        else
+            spawnPositionX = LeftPoint.position.x;
+
+        return spawnPositionX;
+    }
+
+    private void SetSpawnedRoadSettings(RoadScript spawnedRoad)
+    {
+        if (spawnedRoadCounter % 2 == 0)
+            spawnedRoad.SetDirectionType(GlobalVariables.DirectionType.Left);
+        else
+            spawnedRoad.SetDirectionType(GlobalVariables.DirectionType.Right);
+
+        spawnedRoad.SetRoadSpeed(roadSpeed);
     }
 
 }

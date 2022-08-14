@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1932556109344278709}
+  - component: {fileID: 6815929347645640852}
   m_Layer: 0
   m_Name: Road14
   m_TagString: Untagged
@@ -129,3 +130,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6815929347645640852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517780877907067491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e977a8a2ec41ba444822d01d6c1d1de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0

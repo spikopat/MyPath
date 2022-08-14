@@ -11,22 +11,15 @@ public class StateManager : MonoBehaviour
         Instance = this;
     }
 
-    public enum GameStates : byte
-    {
-        InGame,
-        Complete,
-        Fail
-    }
-
-    public GameStates Gamestate;
+    public GlobalVariables.GameStates Gamestate;
 
     private void Start()
     {
-        ChangeState(GameStates.InGame);
+        ChangeState(GlobalVariables.GameStates.InGame);
     }
 
     //Called by FinishTrigger
-    public void ChangeState(GameStates newState)
+    public void ChangeState(GlobalVariables.GameStates newState)
     {
         Gamestate = newState;
     }

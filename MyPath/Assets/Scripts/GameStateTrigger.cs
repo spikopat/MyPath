@@ -6,30 +6,30 @@ using DG.Tweening;
 
 public class GameStateTrigger : MonoBehaviour
 {
-    [SerializeField] private StateManager.GameStates NextGameState;
-    public UnityEvent<StateManager.GameStates> StageCompleteEvent;
+    [SerializeField] private GlobalVariables.GameStates NextGameState;
+    public UnityEvent<GlobalVariables.GameStates> StageCompleteEvent;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!StateManager.Instance.Gamestate.Equals(StateManager.GameStates.InGame))
+        if (!StateManager.Instance.Gamestate.Equals(GlobalVariables.GameStates.InGame))
             return;
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             DOVirtual.DelayedCall(0.25f, () => {
-                StageCompleteEvent?.Invoke(StateManager.GameStates.Complete);
+                StageCompleteEvent?.Invoke(GlobalVariables.GameStates.Complete);
             });
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!StateManager.Instance.Gamestate.Equals(StateManager.GameStates.InGame))
+        if (!StateManager.Instance.Gamestate.Equals(GlobalVariables.GameStates.InGame))
             return;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            StageCompleteEvent?.Invoke(StateManager.GameStates.Fail);
+            StageCompleteEvent?.Invoke(GlobalVariables.GameStates.Fail);
         }
     }
 

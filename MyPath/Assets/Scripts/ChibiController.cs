@@ -15,7 +15,7 @@ public class ChibiController : MonoBehaviour
 
     private void Update()
     {
-        if(StateManager.Instance.Gamestate.Equals(StateManager.GameStates.InGame))
+        if(StateManager.Instance.Gamestate.Equals(GlobalVariables.GameStates.InGame))
             Run();
     }
 
