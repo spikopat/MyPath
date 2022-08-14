@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ChibiController : MonoBehaviour
 {
-    [Range(0, 10)]public float MoveSpeed;
+    [Range(0, 10)] public float MoveSpeed;
 
     private void Start()
     {
