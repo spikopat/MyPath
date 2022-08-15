@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,10 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     public static StateManager Instance;
+
+    [SerializeField] private GameObject stageCompleteUI;
+    [SerializeField] private GameObject stageFailUI;
+
 
     private void Awake()
     {
@@ -27,8 +32,17 @@ public class StateManager : MonoBehaviour
             case GlobalVariables.GameStates.InGame:
                 break;
             case GlobalVariables.GameStates.Complete:
+
+                DOVirtual.DelayedCall(2f, () => {
+                    stageCompleteUI.SetActive(true);
+                });
                 break;
             case GlobalVariables.GameStates.Fail:
+
+                DOVirtual.DelayedCall(2f, () => {
+                    stageFailUI.SetActive(true);
+                });
+
                 FailState();
                 break;
             default:
