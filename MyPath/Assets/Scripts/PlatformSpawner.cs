@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
+    public static PlatformSpawner Instance;
+
     public PlatformSettings PlatformSettings;
     public PlatformSplitter PlatformSplitter;
 
@@ -24,6 +26,11 @@ public class PlatformSpawner : MonoBehaviour
     private int spawnedRoadCounter;
 
     #region UnityFunctions
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         RoadScript spawnedRoad = SpawnRoad();
@@ -75,5 +82,15 @@ public class PlatformSpawner : MonoBehaviour
             spawnPositionX = LeftPoint.position.x;
 
         return spawnPositionX;
+    }
+
+    public RoadScript GetLastSpawnedRoad()
+    {
+        return lastSpawnedRoad;
+    }
+
+    public RoadScript GetPreviousRoad()
+    {
+        return roadsParent.GetChild(lastSpawnedRoad.transform.GetSiblingIndex() - 1).GetComponent<RoadScript>();
     }
 }

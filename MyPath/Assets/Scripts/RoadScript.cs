@@ -33,6 +33,11 @@ public class RoadScript : MonoBehaviour
         hasStopped = true;
     }
 
+    public bool HasStopped()
+    {
+        return hasStopped;
+    }
+
     public void SetRoadSpeed(float roadSpeed)
     {
         this.roadSpeed = roadSpeed;

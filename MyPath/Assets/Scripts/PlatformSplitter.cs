@@ -17,7 +17,7 @@ public class PlatformSplitter : MonoBehaviour
     {
         RoadScript previousRoad = GetPreviousRoad(lastSpawnedRoad);
 
-        //Yeni yol ile eski yol arasýndaki farký aldýk.
+        //Yeni yol ile eski yol arasýndaki farki aldik.
         float xDifferenceBetweenRoads = lastSpawnedRoad.transform.position.x - previousRoad.transform.position.x;
 
         if (HasGameFailed(xDifferenceBetweenRoads, lastSpawnedRoad))
@@ -30,6 +30,7 @@ public class PlatformSplitter : MonoBehaviour
         if (IsInTolerance(xDifferenceBetweenRoads, lastSpawnedRoad))
         {
             PerfectMatch();
+            SetPerfectMatchPosition(previousRoad, lastSpawnedRoad);
             return;
         }
 
@@ -50,6 +51,11 @@ public class PlatformSplitter : MonoBehaviour
     {
         perfectMatchCount++;
         PerfectMatchEvent?.Invoke(perfectMatchCount);
+    }
+
+    private void SetPerfectMatchPosition(RoadScript previousRoad, RoadScript lastSpawnedRoad)
+    {
+        lastSpawnedRoad.transform.position = new Vector3(previousRoad.transform.position.x, lastSpawnedRoad.transform.position.y, lastSpawnedRoad.transform.position.z);
     }
 
     private void SpawnDropCube(float fallingBlockXPosition, float fallingBlockSize, RoadScript lastSpawnedRoad)

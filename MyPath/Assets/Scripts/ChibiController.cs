@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class ChibiController : MonoBehaviour
 {
-    [Range(0, 10)] public float MoveSpeed;
+    [SerializeField, Range(0, 10)] private float moveSpeed;
+    [SerializeField, Range(0, 10)] private float horizontalMoveSpeed;
 
     private void Start()
     {
@@ -21,7 +22,19 @@ public class ChibiController : MonoBehaviour
 
     private void Run()
     {
-        transform.Translate(transform.forward * Time.deltaTime * MoveSpeed);
+        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(CalculateNewXPosition(), transform.position.y, transform.position.z), Time.deltaTime * horizontalMoveSpeed);
+    }
+
+    private float CalculateNewXPosition()
+    {
+        float newXPos;
+        if (PlatformSpawner.Instance.GetPreviousRoad().HasStopped())
+            newXPos = PlatformSpawner.Instance.GetPreviousRoad().transform.position.x;
+        else
+            newXPos = 0;
+
+        return newXPos;
     }
 
 }
