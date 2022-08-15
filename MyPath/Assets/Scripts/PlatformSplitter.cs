@@ -41,7 +41,7 @@ public class PlatformSplitter : MonoBehaviour
         float newXPosition = GetNewRoadXPosition(previousRoad, xDifferenceBetweenRoads);    //Yeni yolun x pozisyonunu belirledik.
         SetNewRoadSettings(lastSpawnedRoad, newXSize, newXPosition);
 
-        float fallingBlockSize = lastSpawnedRoad.transform.localScale.x - newXSize; //Dusecek blogun boyutu.
+        float fallingBlockSize = previousRoad.transform.localScale.x - newXSize; //Dusecek blogun boyutu.
         float cubeEdge = lastSpawnedRoad.transform.position.x + (newXSize / 2f * direction);
         float fallingBlockXPosition = cubeEdge + fallingBlockSize / 2f * direction;
         SpawnDropCube(fallingBlockXPosition, fallingBlockSize, lastSpawnedRoad);
