@@ -6,17 +6,18 @@ using DG.Tweening;
 
 public class RoadScript : MonoBehaviour
 {
+    [SerializeField] private bool hasStopped;
     [SerializeField] private Renderer MRenderer;
 
     private float roadSpeed;
     [HideInInspector] public GlobalVariables.DirectionType direction;
 
-    private bool hasStopped;
     private Color initialColor;
 
     private void Start()
     {
 
+        Invoke("InvokeWaitForDestroy", 2.5f);
         initialColor = MRenderer.material.color;
     }
 
@@ -35,6 +36,15 @@ public class RoadScript : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    private void InvokeWaitForDestroy()
+    {
+        if (!HasStopped())
+        {
+            Destroy(gameObject);
+            StateManager.Instance.ChangeState(GlobalVariables.GameStates.Fail);
         }
     }
 

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,13 +12,26 @@ public class ChibiController : MonoBehaviour
 
     private void Start()
     {
-
+        DOVirtual.DelayedCall(8.5f, () => { 
+            IncreaseSpeed();
+        });
     }
 
     private void Update()
     {
-        if(StateManager.Instance.CheckState(GlobalVariables.GameStates.InGame))
+        if (StateManager.Instance.CheckState(GlobalVariables.GameStates.InGame))
+        {
             Run();
+        }
+    }
+
+    private void IncreaseSpeed()
+    {
+        moveSpeed += 0.15f;
+
+        DOVirtual.DelayedCall(8.5f, () => {
+            IncreaseSpeed();
+        });
     }
 
     private void Run()

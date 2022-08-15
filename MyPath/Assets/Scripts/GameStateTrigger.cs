@@ -16,7 +16,7 @@ public class GameStateTrigger : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            DOVirtual.DelayedCall(0.25f, () => {
+            DOVirtual.DelayedCall(0.5f, () => {
                 StageCompleteEvent?.Invoke(GlobalVariables.GameStates.Complete);
             });
         }
