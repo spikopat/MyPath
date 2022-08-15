@@ -9,6 +9,9 @@ public class PlatformSplitter : MonoBehaviour
 {
     [SerializeField] private Transform roadsParent;
     public UnityEvent<GlobalVariables.GameStates> GameFailEvent;
+    public UnityEvent<int> PerfectMatchEvent;
+
+    private int perfectMatchCount;
 
     public void SplitPlatform(RoadScript lastSpawnedRoad)
     {
@@ -24,6 +27,14 @@ public class PlatformSplitter : MonoBehaviour
             return;
         }
 
+        if (IsInTolerance(xDifferenceBetweenRoads, lastSpawnedRoad))
+        {
+            PerfectMatch();
+            return;
+        }
+
+        perfectMatchCount = 0;
+
         float direction = GetDirectionMultiplier(xDifferenceBetweenRoads);
         float newXSize = GetNewRoadXScale(lastSpawnedRoad, xDifferenceBetweenRoads);    //Yeni yolun sistemde kalacak miktari belirlendi.
         float newXPosition = GetNewRoadXPosition(previousRoad, xDifferenceBetweenRoads);    //Yeni yolun x pozisyonunu belirledik.
@@ -33,6 +44,12 @@ public class PlatformSplitter : MonoBehaviour
         float cubeEdge = lastSpawnedRoad.transform.position.x + (newXSize / 2f * direction);
         float fallingBlockXPosition = cubeEdge + fallingBlockSize / 2f * direction;
         SpawnDropCube(fallingBlockXPosition, fallingBlockSize, lastSpawnedRoad);
+    }
+
+    private void PerfectMatch()
+    {
+        perfectMatchCount++;
+        PerfectMatchEvent?.Invoke(perfectMatchCount);
     }
 
     private void SpawnDropCube(float fallingBlockXPosition, float fallingBlockSize, RoadScript lastSpawnedRoad)
@@ -74,9 +91,16 @@ public class PlatformSplitter : MonoBehaviour
     }
     #endregion
 
+    #region Controls
+    private bool IsInTolerance(float xDifferenceBetweenRoads, RoadScript lastSpawnedRoad)
+    {
+        return (lastSpawnedRoad.transform.localScale.x * 0.05f >= Mathf.Abs(xDifferenceBetweenRoads));
+    }
+
     private bool HasGameFailed(float xDifferenceBetweenRoads, RoadScript lastSpawnedRoad)
     {
         return Mathf.Abs(xDifferenceBetweenRoads) >= lastSpawnedRoad.transform.localScale.x;
     }
+    #endregion
 
 }

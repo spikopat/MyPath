@@ -27,6 +27,7 @@ public class PlatformSpawner : MonoBehaviour
     private void Start()
     {
         RoadScript spawnedRoad = SpawnRoad();
+
         spawnedRoadCounter++;
         lastSpawnedRoad = spawnedRoad;
         PlatformSettings.SetSpawnedRoadSettings(lastSpawnedRoad, spawnedRoadCounter);
