@@ -11,7 +11,7 @@ public class GameStateTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!StateManager.Instance.Gamestate.Equals(GlobalVariables.GameStates.InGame))
+        if (!StateManager.Instance.CheckState(GlobalVariables.GameStates.InGame))
             return;
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -24,7 +24,7 @@ public class GameStateTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!StateManager.Instance.Gamestate.Equals(GlobalVariables.GameStates.InGame))
+        if (!StateManager.Instance.CheckState(GlobalVariables.GameStates.InGame))
             return;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))

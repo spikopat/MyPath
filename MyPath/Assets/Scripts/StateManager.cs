@@ -11,7 +11,7 @@ public class StateManager : MonoBehaviour
         Instance = this;
     }
 
-    public GlobalVariables.GameStates Gamestate;
+    private GlobalVariables.GameStates Gamestate;
 
     private void Start()
     {
