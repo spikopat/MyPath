@@ -16,8 +16,6 @@ public class RoadScript : MonoBehaviour
 
     private void Start()
     {
-
-        Invoke("InvokeWaitForDestroy", 2.5f);
         initialColor = MRenderer.material.color;
     }
 
@@ -36,15 +34,6 @@ public class RoadScript : MonoBehaviour
                 break;
             default:
                 break;
-        }
-    }
-
-    private void InvokeWaitForDestroy()
-    {
-        if (!HasStopped())
-        {
-            Destroy(gameObject);
-            StateManager.Instance.ChangeState(GlobalVariables.GameStates.Fail);
         }
     }
 

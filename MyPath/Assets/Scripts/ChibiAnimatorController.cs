@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class ChibiAnimatorController : MonoBehaviour
 {
-    private string Dance = "Dance";
     [SerializeField] private Animator animator;
+    private string Dance = "Dance";
+    private string Fail = "Fail";
 
     private void Start()
     {
         
     }
 
+    //Called by GameStateTrigger.cs
     public void DanceTrigger()
     {
         animator.SetTrigger(Dance);
+    }
+
+    //Called by GameStateTrigger.cs
+    public void FailTrigger()
+    {
+        animator.SetTrigger(Fail);
     }
 
 }

@@ -9887,9 +9887,65 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageCompleteEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 419967026}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5062883109654775315}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
       propertyPath: StageCompleteEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 419967026}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeState
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: FailTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StateManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ChibiAnimatorController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707188299, guid: b13a2bf1cd7b38c44a8a47c1608f8e05, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2941612379969879220, guid: b13a2bf1cd7b38c44a8a47c1608f8e05,
         type: 3}
       propertyPath: m_Name
@@ -10398,6 +10454,34 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5062883109654775315}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5062883109654775315}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
       propertyPath: StageCompleteEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 419967026}
@@ -10409,6 +10493,30 @@ PrefabInstance:
       propertyPath: StageCompleteEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1159204420}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FailTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: FailTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChibiAnimatorController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ChibiAnimatorController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731609791, guid: 50d59dd24e8b8264b890d8c1d9709931, type: 3}
+      propertyPath: StageFailEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8153186057199919623, guid: 50d59dd24e8b8264b890d8c1d9709931,
         type: 3}
       propertyPath: m_RootOrder

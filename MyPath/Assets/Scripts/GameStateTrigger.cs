@@ -8,6 +8,7 @@ public class GameStateTrigger : MonoBehaviour
 {
     [SerializeField] private GlobalVariables.GameStates NextGameState;
     public UnityEvent<GlobalVariables.GameStates> StageCompleteEvent;
+    public UnityEvent<GlobalVariables.GameStates> StageFailEvent;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,12 +25,12 @@ public class GameStateTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!StateManager.Instance.CheckState(GlobalVariables.GameStates.InGame))
+        if (StateManager.Instance.GetState() != GlobalVariables.GameStates.InGame)
             return;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            StageCompleteEvent?.Invoke(GlobalVariables.GameStates.Fail);
+            StageFailEvent?.Invoke(GlobalVariables.GameStates.Fail);
         }
     }
 

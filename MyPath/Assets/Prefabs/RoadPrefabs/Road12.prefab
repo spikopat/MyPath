@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3449710426002527252}
   m_Layer: 0
   m_Name: Road12
-  m_TagString: Untagged
+  m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,5 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e977a8a2ec41ba444822d01d6c1d1de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasStopped: 0
   MRenderer: {fileID: 2669868053089582741}
   direction: 0

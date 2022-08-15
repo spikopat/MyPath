@@ -22,6 +22,18 @@ public class StateManager : MonoBehaviour
     public void ChangeState(GlobalVariables.GameStates newState)
     {
         Gamestate = newState;
+        switch (Gamestate)
+        {
+            case GlobalVariables.GameStates.InGame:
+                break;
+            case GlobalVariables.GameStates.Complete:
+                break;
+            case GlobalVariables.GameStates.Fail:
+                FailState();
+                break;
+            default:
+                break;
+        }
     }
 
     public GlobalVariables.GameStates GetState()
@@ -32,6 +44,15 @@ public class StateManager : MonoBehaviour
     public bool CheckState(GlobalVariables.GameStates state)
     {
         return Gamestate == state;
+    }
+
+    private void FailState()
+    {
+        GameObject[] roads = GameObject.FindGameObjectsWithTag("Road");
+        foreach (GameObject item in roads)
+        {
+            item.gameObject.SetActive(false);
+        }
     }
 
 }
