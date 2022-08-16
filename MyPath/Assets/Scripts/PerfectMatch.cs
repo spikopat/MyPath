@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class PerfectMatch : MonoBehaviour
 {
+    [SerializeField] private Transform greatTextSpawnPosition;
+    [SerializeField] private Transform greatText;
 
     private void Start()
     {
@@ -17,6 +19,9 @@ public class PerfectMatch : MonoBehaviour
     {
         RoadScript previousRoad = PlatformSpawner.Instance.GetLastSpawnedRoad();
         Color tempColor = previousRoad.GetColor();
+
+        //Spawn feedback text
+        Instantiate(greatText, greatTextSpawnPosition.position, Quaternion.identity, greatTextSpawnPosition.parent);
 
         previousRoad.BlinkColor(Color.white, 0.2f, 3);
     }
